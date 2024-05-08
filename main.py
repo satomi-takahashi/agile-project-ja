@@ -34,6 +34,12 @@ def check_calculation_input(message: str,
 def addition(a, b):
     return a + b
 
+def subtraction(a, b):
+    return a - b
+
+def multiplication(a, b):
+    return a * b
+
 def main():
     """
     インプットを受け取り、各種関数を呼び出す
@@ -57,5 +63,23 @@ def main():
         b = check_calculation_input(message, ans, False, False)
         ans = addition(a, b)
         print(f"{a} + {b} = {ans}")
+
+    if choice == "2":
+        message = "Input a and b for a - b\n"
+        message += "a = "
+        a = check_calculation_input(message, ans, False, False)
+        message = "b = "
+        b = check_calculation_input(message, ans, False, False)
+        ans = subtraction(a, b)
+        print(f"{a} - {b} = {ans}")
+
+    if choice == "3":
+        message = "Input a and b for a * b\n"
+        message += "a = "
+        a = check_calculation_input(message, ans, False, False)
+        message = "b = "
+        b = check_calculation_input(message, ans, False, False)
+        ans = multiplication(a, b)
+        print(f"{a} * {b} = {ans}")
 
 main()
