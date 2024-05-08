@@ -1,19 +1,30 @@
-def check_choice(message: str, choices: tuple) -> str:
+def check_choice(message: str, choices: tuple, test: bool=False) -> str:
     """
     inputの選択肢が正しいかを確認する
+    - message: inputを促す際に表示するメッセージ
+    - choices: インプットの選択範囲
+    - test: テストモードかどうか
     """
     while True:
         choice = input(message)
         if choice in choices:
             return choice
+        elif test:
+            return "Invalid input. Input correct choice."
         print("Invalid input. Input correct choice.")
 
 def check_calculation_input(message: str, 
                             ans: float,
                             negative_not_allowed: bool=False, 
-                            zero_not_allowed: bool=False) -> float:
+                            zero_not_allowed: bool=False,
+                            test: bool=False) -> float:
     """
     inputが計算の条件に適しているかを確認する
+    - message: inputを促す際に表示するメッセージ
+    - ans: 前回の計算結果
+    - negative_not_allowed: 負の数を禁止するか
+    - zero_not_allowed: ゼロを禁止するか
+    - test: テストモードかどうか
     """
     while True:
         choice = input(message)
@@ -23,12 +34,18 @@ def check_calculation_input(message: str,
         try:
             choice = float(choice)
             if (negative_not_allowed)and(choice<0):
+                if test:
+                    return "Negative value is not allowed. Input positive float."
                 print("Negative value is not allowed. Input positive float.")
-            elif (negative_not_allowed)and(choice==0):
+            elif (zero_not_allowed)and(choice==0):
+                if test:
+                    return "Zero is not allowed. Input none zero."
                 print("Zero is not allowed. Input none zero.")
             else:
                 return choice
         except:
+            if test:
+                return "Invalid data. Input float."
             print("Invalid data. Input float.")
 
 def addition(a, b):
@@ -82,4 +99,5 @@ def main():
         ans = multiplication(a, b)
         print(f"{a} * {b} = {ans}")
 
-main()
+if __name__ == "__main__":
+    main()
