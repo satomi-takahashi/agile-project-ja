@@ -57,6 +57,13 @@ def subtraction(a, b):
 def multiplication(a, b):
     return a * b
 
+def division(a, b):
+    return a / b
+
+def square_root(a):
+    return a ** 0.5
+
+
 def main():
     """
     インプットを受け取り、各種関数を呼び出す
@@ -98,6 +105,22 @@ def main():
         b = check_calculation_input(message, ans, False, False)
         ans = multiplication(a, b)
         print(f"{a} * {b} = {ans}")
+
+    if choice == "4":
+        message = "Input a and b for a / b\n"
+        message += "a = "
+        a = check_calculation_input(message, ans, False, False)
+        message = "b = "
+        b = check_calculation_input(message, ans, False, False)
+        ans = division(a, b)
+        print(f"{a} / {b} = {ans}")
+
+    if choice == "6":
+        message = "Input a for √a\n"
+        message += "a = "
+        a = check_calculation_input(message, ans, False, False)
+        ans = square_root(a, b)
+        print(f"{a} ** 0.5 = {ans}")
 
 if __name__ == "__main__":
     main()
