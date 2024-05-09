@@ -119,7 +119,7 @@ def main():
         message = "Input a for √a\n"
         message += "a = "
         a = check_calculation_input(message, ans, False, False)
-        ans = square_root(a, b)
+        ans = square_root(a)
         print(f"{a} ** 0.5 = {ans}")
 
 if __name__ == "__main__":
